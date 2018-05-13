@@ -1,0 +1,19 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "Roowix task",
+  "main": "app.js",
+  "dependencies": {
+    "mongodb": "^3.0.7",
+    "node-static": "^0.7.10",
+    "ws": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  },
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": ""
+}
