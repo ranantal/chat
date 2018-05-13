@@ -9,6 +9,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/', function (err, db) {
 	if (err) {throw err}
 	
   messagesCollection = db.db('chat').collection('messages');
+  messagesCollection.drop();
 });
 
 var webSocketServer = new WebSocketServer.Server({port: port});
@@ -43,9 +44,6 @@ webSocketServer.on('connection', function(ws) {
         clients[key].socket.send(messageString);
     }
 
-    // saving mew message in db
-    messagesCollection.insertOne(messageObj);
-
     if (messageObj.type === 'CONNECT') { // registration
       clients[id].name = messageObj.name;
       // sending back all history
@@ -57,6 +55,9 @@ webSocketServer.on('connection', function(ws) {
         });
       });
     }
+
+    // saving mew message in db
+    messagesCollection.insertOne(messageObj);
   });
 
   ws.on('close', function() {
