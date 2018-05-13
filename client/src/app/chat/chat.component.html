@@ -1,0 +1,12 @@
+<div class="conteiner">
+    <div class="row">
+        <div class="col-sm-6">
+            <div *ngFor="let message of messages">
+                {{message.type}}: {{message.message}}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" (keyup.enter)="sendMessage(myMessage)" [(ngModel)]="myMessage" > 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div *ngIf="!logged" class="container">
+    <h2>Login</h2>
+    <form ngNativeValidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" required [(ngModel)]="name">
+      </div>
+ 
+      <button type="submit" class="btn btn-success" (click)="login()">Submit</button>
+ 
+    </form>
+</div>
+
+<app-chat *ngIf="logged" [name]="name"></app-chat>
