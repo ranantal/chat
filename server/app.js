@@ -70,7 +70,7 @@ webSocketServer.on('connection', function(ws) {
       type: 'DISCONNECT',
       name: name,
       message: null,
-      time: (new Date()).getMilliseconds()
+      time: (new Date()).getTime()
     };
 
     for (var key in clients) {
