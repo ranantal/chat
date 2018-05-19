@@ -19,7 +19,7 @@ export class InputComponent implements OnInit {
             type: "MESSAGE",
             message: message,
             name: this.name,
-            time: new Date().getMilliseconds()
+            time: new Date().getTime()
         });
     }
 

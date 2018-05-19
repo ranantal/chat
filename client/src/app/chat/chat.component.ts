@@ -21,7 +21,7 @@ export class ChatComponent implements OnInit {
             type: "CONNECT",
             message: null,
             name: this.name,
-            time: new Date().getMilliseconds()
+            time: new Date().getTime()
         });
     }
 }
