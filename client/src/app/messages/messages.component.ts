@@ -16,6 +16,9 @@ export class MessagesComponent implements OnInit {
         this.chatService.getObservable().
         subscribe((data: Message) => {
             this.messages.push(data);
+            this.messages.sort((a, b) => {
+                return a.time - b.time;
+            })
         });
     }
 
