@@ -1,6 +1,16 @@
 <div #list [scrollTop]="list.scrollHeight" class="chat-body">
     <div class="chat-message" *ngFor="let message of messages">
-        {{message.name}}: <br>
-        {{message.type}}: {{message.message}} <br>
+        <div *ngIf="message.type===&quot;MESSAGE&quot;" class="custom-message">
+            <span class="message-owner">{{message.name}}:</span>
+            {{message.message}}
+        </div>
+
+        <div *ngIf="message.type===&quot;CONNECT&quot;" class="system-message">
+            {{message.name}} joined our chat
+        </div>
+
+        <div *ngIf="message.type===&quot;DISCONNECT&quot;" class="system-message">
+            {{message.name}} left our chat
+        </div>
     </div>
 </div>

@@ -2,3 +2,12 @@
     height: 100%;
     overflow-y: auto;
 }
+
+.system-message {
+    text-align: center;
+    font-style: italic;
+}
+
+.custom-message > .message-owner {
+    color: red;
+}
