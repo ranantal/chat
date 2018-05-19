@@ -71,9 +71,16 @@ webSocketServer.on('connection', function(ws) {
         type: 'DISCONNECT',
         name: name,
         message: null,
-        time: (new Date()).getTime()
+        time: (new Date()).getMilliseconds()
       }))
     }
+
+    messagesCollection.insertOne({
+      type: 'DISCONNECT',
+      name: name,
+      message: null,
+      time: (new Date()).getMilliseconds()
+    });
   });
 
 });
