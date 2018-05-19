@@ -44,9 +44,6 @@ webSocketServer.on('connection', function(ws) {
         clients[key].socket.send(messageString);
     }
 
-    // saving mew message in db
-    messagesCollection.insertOne(messageObj);
-
     if (messageObj.type === 'CONNECT') { // registration
       clients[id].name = messageObj.name;
       // sending back all history
@@ -58,6 +55,9 @@ webSocketServer.on('connection', function(ws) {
         });
       });
     }
+
+    // saving mew message in db
+    messagesCollection.insertOne(messageObj);
   });
 
   ws.on('close', function() {
@@ -66,21 +66,18 @@ webSocketServer.on('connection', function(ws) {
     
     delete clients[id];
 
-    for (var key in clients) {
-      clients[key].socket.send( JSON.stringify({
-        type: 'DISCONNECT',
-        name: name,
-        message: null,
-        time: (new Date()).getMilliseconds()
-      }))
-    }
-
-    messagesCollection.insertOne({
+    let disconnectMessage = {
       type: 'DISCONNECT',
       name: name,
       message: null,
       time: (new Date()).getMilliseconds()
-    });
+    };
+
+    for (var key in clients) {
+      clients[key].socket.send( JSON.stringify(disconnectMessage))
+    }
+
+    messagesCollection.insertOne(disconnectMessage);
   });
 
 });
