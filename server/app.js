@@ -40,9 +40,12 @@ webSocketServer.on('connection', function(ws) {
     console.log('New message from ' + id + ': ' + messageObj);
     // sending new message for all clients
     for(var key in clients) {
-      if (id !== key)
+     // if (id !== key)
         clients[key].socket.send(messageString);
     }
+
+    // saving mew message in db
+    messagesCollection.insertOne(messageObj);
 
     if (messageObj.type === 'CONNECT') { // registration
       clients[id].name = messageObj.name;
@@ -55,9 +58,6 @@ webSocketServer.on('connection', function(ws) {
         });
       });
     }
-
-    // saving mew message in db
-    messagesCollection.insertOne(messageObj);
   });
 
   ws.on('close', function() {
