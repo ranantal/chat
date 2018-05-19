@@ -1,0 +1,12 @@
+.login-table {
+    display: table;
+    width: 70%;
+    height: 70vh;
+    margin: auto;
+}
+
+.login-form {
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+}

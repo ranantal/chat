@@ -1,4 +1,5 @@
-<div *ngIf="!logged" class="container">
+<div *ngIf="!logged" class="login-table">
+  <div class="login-form">
     <h2>Login</h2>
     <form ngNativeValidate>
       <div class="form-group">
@@ -9,6 +10,7 @@
       <button type="submit" class="btn btn-success" (click)="login()">Submit</button>
  
     </form>
+  </div>
 </div>
 
 <app-chat *ngIf="logged" [name]="name"></app-chat>

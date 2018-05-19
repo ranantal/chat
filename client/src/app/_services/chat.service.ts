@@ -41,7 +41,7 @@ export class ChatService {
     }
 
     sendMessage(message: Message): void {
-        if (this.ws !== null)
-            this.ws.send(JSON.stringify(message));
+        if (this.ws !== null) 
+            this.ws.send(JSON.stringify(message)); 
     }
 }

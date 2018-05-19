@@ -1,0 +1,23 @@
+.chat-wrapper {
+    height: 100vh;
+}
+
+.chat-body-users {
+    height: 75%;
+   /* display: flex;
+    justify-content: space-between;*/
+}
+
+.chat-body {
+    height: 100%;
+   /* flex: 2 2 auto;*/
+}
+/*
+.chat-users {
+    width: 25%;
+    flex: 1 1 auto;
+}*/
+
+.chat-input {
+    height: 25%;
+}

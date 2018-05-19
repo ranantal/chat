@@ -1,0 +1,6 @@
+<div #list [scrollTop]="list.scrollHeight" class="chat-body">
+    <div class="chat-message" *ngFor="let message of messages">
+        {{message.name}}: <br>
+        {{message.type}}: {{message.message}} <br>
+    </div>
+</div>

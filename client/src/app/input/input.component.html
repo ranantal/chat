@@ -1,0 +1,13 @@
+<form ngNativeValidate>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <textarea #text class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="col-3">
+                <button type="submit" class="btn btn-primary"
+                (click)="sendMessage(text.value); text.value = &quot;&quot;;">SEND</button>
+            </div>
+        </div>
+    </div>
+</form>
