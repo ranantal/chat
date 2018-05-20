@@ -44,4 +44,8 @@ export class ChatService {
         if (this.ws !== null) 
             this.ws.send(JSON.stringify(message)); 
     }
+
+    checkConnection(): number {
+        return this.ws.readyState;
+    }
 }

@@ -13,15 +13,21 @@ export class ChatComponent implements OnInit {
     constructor(
         private chatService: ChatService
     ) {
-
+        this.chatService.connect();
     }
 
     ngOnInit(): void {
-        this.chatService.sendMessage({
-            type: "CONNECT",
-            message: null,
-            name: this.name,
-            time: new Date().getTime()
-        });
+        let interval = setInterval(() => {
+            console.log(interval);
+            if (this.chatService.checkConnection() === WebSocket.OPEN) {
+                this.chatService.sendMessage({
+                    type: "CONNECT",
+                    message: null,
+                    name: this.name,
+                    time: new Date().getTime()
+                });
+                clearInterval(interval);
+            }
+        }, 100)
     }
 }
