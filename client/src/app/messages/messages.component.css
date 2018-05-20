@@ -11,3 +11,7 @@
 .custom-message > .message-owner {
     color: red;
 }
+
+.custom-message {
+    white-space: pre;
+}
