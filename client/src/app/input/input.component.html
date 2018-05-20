@@ -4,7 +4,7 @@
             <div class="col-9">
                 <textarea #text class="form-control" rows="5" 
                 (keydown.control.Enter)="sendMessage(text.value); text.value = &quot;&quot;;"
-                placeholder="Ctrl + Enter"></textarea>
+                placeholder="Ctrl + Enter" autofocus></textarea>
             </div>
             <div class="col-3">
                 <button type="submit" class="btn btn-primary"
