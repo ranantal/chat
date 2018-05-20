@@ -1,16 +1,26 @@
 <div *ngIf="!logged" class="login-table">
   <div class="login-form">
     <h2>Login</h2>
-    <form ngNativeValidate>
+    <form #loginForm="ngForm" >
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" id="name" required [(ngModel)]="name">
+        <input type="text" class="form-control" 
+        name="name" id="name" required
+        [(ngModel)]="username" #name="ngModel">
+      </div>
+
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+      class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
       </div>
  
-      <button type="submit" class="btn btn-success" (click)="login()">Submit</button>
+      <button type="submit" class="btn btn-success" (click)="login()"
+      [disabled]="loginForm.invalid">Submit</button>
  
     </form>
   </div>
 </div>
 
-<app-chat *ngIf="logged" [name]="name"></app-chat>
+<app-chat *ngIf="logged" [name]="username"></app-chat>

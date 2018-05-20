@@ -7,7 +7,7 @@ import { ChatService } from '../_services/chat.service';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    name: string = '';
+    username: string = '';
     logged: boolean = false;
     constructor(
         private chatService: ChatService
